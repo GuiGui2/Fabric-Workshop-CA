@@ -22,9 +22,12 @@
 | **Time** | **Topic**|
 |----------|----------|
 | 09:00 AM - 10:00 AM | Lecture: Blockchain Composed - Introduction to Hyperledger Composer |
-| 10:00 AM - 12:00 PM | Lab: Hyperledger Composer |
+| 10:00 AM - 11:00 PM | Lab: Hyperledger Composer |
+| 11:00 AM - 11:15 AM | Break |
+| 11:15 AM - 12:00 PM | Lab: Hyperledger Composer continued |
 | 12:00 PM - 01:00 PM | **LUNCH** |
 | 01:00 PM - 02:00 PM | Lecture: Chaincode development introduction |
 | 02:00 PM - 03:00 PM | Lab: Chaincode development introduction |
-| 03:00 PM - 04:00 PM | Lab: Interacting with Chaincodes using Hyperledger Fabric Node SDK |
+| 03:15 PM - 03:30 PM | Break |
+| 03:30 PM - 04:00 PM | Lab: Interacting with Chaincodes using Hyperledger Fabric Node SDK - instructor-led |
 | 04:00 PM - 04:30 PM | Closing thoughts and wrap-up |
