@@ -66,24 +66,17 @@ echo "export FABRIC_VERSION=hlfv11" >> $HOME/.profile
 #./downloadFabric.sh
 ./startFabric.sh
 ./createPeerAdminCard.sh
-mkdir /data/playground/
-nohup composer-playground >/data/playground/playground.stdout 2>/data/playground/playground.stderr & disown
+mkdir ~/playground/
+nohup composer-playground >~/playground/playground.stdout 2>~/playground/playground.stderr & disown
 sudo iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
 sudo iptables -I INPUT 1 -p tcp --dport 3000 -j ACCEPT
 sudo iptables -I INPUT 1 -p tcp --dport 1880 -j ACCEPT
-sudo bash -c "iptables-save > /etc/linuxone/iptables.save"
+#sudo bash -c "iptables-save > /etc/linuxone/iptables.save"
 
 #Install NodeRed
 echo -e "*** Installing NodeRed. ***\n"
 npm install -g node-red
-nohup node-red >/data/playground/nodered.stdout 2>/data/playground/nodered.stderr & disown
-
-# Persist PATH setting
-# Check PATH for /data/npm/bin
-if ! $( echo $PATH | grep -q /data/npm/bin ); then
-  echo "export PATH=/data/npm/bin:$PATH" >> $HOME/.profile
-  echo "PATH was missing '/data/npm/bin'. This has been corrected."
-fi
+nohup node-red >~/playground/nodered.stdout 2>~/playground/nodered.stderr & disown
 
 # Persist docker group addition
 sudo usermod -aG docker blockchain
