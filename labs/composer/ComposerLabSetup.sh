@@ -75,7 +75,7 @@ sudo iptables -I INPUT 1 -p tcp --dport 1880 -j ACCEPT
 
 #Install NodeRed
 echo -e "*** Installing NodeRed. ***\n"
-npm install -g node-red
+sudo npm install -g node-red
 nohup node-red >~/playground/nodered.stdout 2>~/playground/nodered.stderr & disown
 
 # Persist docker group addition
