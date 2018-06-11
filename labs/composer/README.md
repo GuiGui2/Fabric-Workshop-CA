@@ -1,6 +1,6 @@
 # Hyperledger Fabric and Hyperledger Composer on LinuxONE
 
-###Note: After this week if you want to use this lab please use the link below.
+### Note: After this week if you want to use this lab please use the link below.
 
 https://github.com/IBM/hyperledger-fabric-on-linux-one
 
