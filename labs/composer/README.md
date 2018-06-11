@@ -116,7 +116,7 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
    ```
 
 7. Enter `./ComposerLabSetup.sh` to run the script.
-* Note: Don't worry about the errors during the Node-RED installation It still works. You will need to exit and log back in to your guest.
+* Note: Don't worry about the errors during the Node-RED installation. It still works. You will need to exit and log back in to your guest.
    ![Results of successful completion of setup script.](images/finishedSetupScript.png)
 
    ​
@@ -489,7 +489,7 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
 
 54. In your terminal, issue the following command to start the API rest server:
 
-    * `nohup composer-rest-server -c admin@hlfv1-blockchain-journey -n always -w true >/home/bcuser/playground/rest.stdout 2>/home/bcuser/playground/rest.stderr & disown`
+    * `nohup composer-rest-server -c admin@hlfv1-blockchain-journey -n always -w true >~/playground/rest.stdout 2>~/playground/rest.stderr & disown`
 
       ![Start your API rest server.](images/StartRestServer.png)
 
@@ -556,7 +556,7 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
 
  ![Click Close.](images/closePalette.png)
 
-9. **Copy** all of the JSON from the [GitHub repository](https://raw.githubusercontent.com/IBM/HyperledgerFabric-on-LinuxOne/master/code/node-red.json) to import into the flow. 
+9. **Copy** all of the JSON from the [GitHub repository](https://raw.githubusercontent.com/GuiGui2/Fabric-Workshop-CA/master/labs/composer/code/node-red.json) to import into the flow. 
 
     - **Note:** The easiest way to do this is clicking the hyperlink above. You can also find it in the GitHub repository in the code folder as `node-red.json`. To view it in GitHub, **click** on *node-red.json*, **select** *raw* and then copy it. 
 
@@ -645,12 +645,3 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
     * ![recommendation result](images/dashboard-recommendation-result.png)
 
 25. Congratulations! You've completed this lab!
-
-
-
-
-
-
-   ```
-
-   ```
