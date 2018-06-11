@@ -64,6 +64,8 @@ tar -xvf fabric-dev-servers.tar.gz
 export FABRIC_VERSION=hlfv11
 echo "export FABRIC_VERSION=hlfv11" >> $HOME/.profile
 #./downloadFabric.sh
+unset COMPOSE_PROJECT_NAME
+docker rm -f $(docker ps -aq)
 ./startFabric.sh
 ./createPeerAdminCard.sh
 mkdir ~/playground/
