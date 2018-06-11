@@ -68,21 +68,20 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
 
 2. This lab document assumes your lab instructors have already started your VPN for you. If you cannot get the next step to work, please ask a lab instructor for assistance.
 
-3.  **Open** PuTTy and **select** the preconfigured session showing the IP address of your guest to connect to your LinuxONE guest. Once you're connected you should see something like the image below.
+3. **Open** PuTTy and **select** the preconfigured session showing the IP address of your guest to connect to your LinuxONE guest. Once you're connected you should see something like the image below.
 
    ```
-  Welcome to Ubuntu 17.10 (GNU/Linux 4.13.0-43-generic s390x)
+   Welcome to Ubuntu 17.10 (GNU/Linux 4.13.0-43-generic s390x)
+   * Documentation:  https://help.ubuntu.com
+   * Management:     https://landscape.canonical.com
+   * Support:        https://ubuntu.com/advantage
 
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
+   * Meltdown, Spectre and Ubuntu: What are the attack vectors,
+    how the fixes work, and everything else you need to know
+    - https://ubu.one/u2Know
 
- * Meltdown, Spectre and Ubuntu: What are the attack vectors,
-   how the fixes work, and everything else you need to know
-   - https://ubu.one/u2Know
-
-9 packages can be updated.
-0 updates are security updates.
+   9 packages can be updated.
+   0 updates are security updates.
    ```
 
    #### Setup your blockchain environment
@@ -117,7 +116,7 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
    ```
 
 7. Enter `./ComposerLabSetup.sh` to run the script.
-
+* Note: Don't worry about the errors during the Node-RED installation It still works. You will need to exit and log back in to your guest.
    ![Results of successful completion of setup script.](images/finishedSetupScript.png)
 
    ​
@@ -645,3 +644,7 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
 
 
 
+
+   ```
+
+   ```
