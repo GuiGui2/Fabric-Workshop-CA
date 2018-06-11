@@ -8,10 +8,9 @@ if ! $( id -Gn | grep -wq docker ); then
   echo "ID blockchain was not a member of the docker group. This has been corrected."
   relog=true
 fi
-# Check PATH for /data/npm/bin
-if ! $( echo $PATH | grep -q /data/npm/bin ); then
-  echo "export PATH=/data/npm/bin:$PATH" >> $HOME/.profile
-  echo "PATH was missing '/data/npm/bin'. This has been corrected."
+# Update PATH for /usr/local/bin
+  echo "export PATH=/usr/local/bin:$PATH" >> $HOME/.profile
+  echo "Updated PATH."
   relog=true
 fi
 # Relog needed?
@@ -56,6 +55,7 @@ echo -e “*** install_nodejs ***”
 cd /tmp
 wget -q https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-s390x.tar.gz
 cd /usr/local && sudo tar --strip-components=1 -xzf /tmp/node-v8.9.4-linux-s390x.tar.gz
+npm update -g node@8.9.4
 echo -e “*** Done withe NodeJS ***\n”
 
 echo -e "*** Clone and install the Coposer Tools repository.***\n"
@@ -87,7 +87,7 @@ if ! $( echo $PATH | grep -q /data/npm/bin ); then
 fi
 
 # Persist docker group addition
-sudo usermod -aG docker linux1
+sudo usermod -aG docker blockchain
 
 echo "Please log out of this system and log back in to pick up the group and PATH changes."
 
