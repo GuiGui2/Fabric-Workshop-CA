@@ -4,8 +4,8 @@
 relog=false
 # Check for docker group
 if ! $( id -Gn | grep -wq docker ); then
-  sudo usermod -aG docker linux1
-  echo "ID linux1 was not a member of the docker group. This has been corrected."
+  sudo usermod -aG docker blockchain
+  echo "ID blockchain was not a member of the docker group. This has been corrected."
   relog=true
 fi
 # Check PATH for /data/npm/bin
@@ -50,6 +50,13 @@ IBM Master the Mainframe
 IBM Master the Mainframe
 
 "
+
+#Install NodeJS
+echo -e “*** install_nodejs ***”
+cd /tmp
+wget -q https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-s390x.tar.gz
+cd /usr/local && sudo tar --strip-components=1 -xzf /tmp/node-v8.9.4-linux-s390x.tar.gz
+echo -e “*** Done withe NodeJS ***\n”
 
 echo -e "*** Clone and install the Coposer Tools repository.***\n"
 mkdir ~/fabric-tools && cd ~/fabric-tools
