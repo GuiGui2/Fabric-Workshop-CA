@@ -1,6 +1,6 @@
 # Hyperledger Fabric and Hyperledger Composer on LinuxONE
 
-###Note: After SHARE Winter 2018 in Sacramento. Please use the link below to conduct this lab.
+###Note: After this week if you want to use this lab please use the link below.
 
 https://github.com/IBM/hyperledger-fabric-on-linux-one
 
@@ -60,7 +60,7 @@ For this lab, we will simulate a thermostat and a temperature gauge to provide u
 
 ### Part 1 - Setup your LinuxONE guest
 
-In this section of the lab, you will use PuTTy to connect to your LinuxONE guest, setup your blockchain environment and verify everything is running. Your guest is a basic Ubuntu 16.04.3 server running on an IBM z13 server residning in the Washington Systems Center in Herndon, Virginia. You can verify your Ubuntu version the command, `uname -a` , once you're logged into your guest.
+In this section of the lab, you will use PuTTy to connect to your LinuxONE guest, setup your blockchain environment and verify everything is running. Your guest is a basic Ubuntu 17.0 server running on an IBM Z server residning in Montpellier, France. You can verify your Ubuntu version the command, `uname -a` , once you're logged into your guest.
 
 #### Access your LinuxONE guest
 
@@ -71,12 +71,18 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
 3.  **Open** PuTTy and **select** the preconfigured session showing the IP address of your guest to connect to your LinuxONE guest. Once you're connected you should see something like the image below.
 
    ```
-   Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic s390x)
+  Welcome to Ubuntu 17.10 (GNU/Linux 4.13.0-43-generic s390x)
 
-    * Documentation:  https://help.ubuntu.com
-    * Management:     https://landscape.canonical.com
-    * Support:        https://ubuntu.com/advantage
-     Last login: Wed Mar  7 18:57:11 2018 from 192.168.215.44
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ * Meltdown, Spectre and Ubuntu: What are the attack vectors,
+   how the fixes work, and everything else you need to know
+   - https://ubu.one/u2Know
+
+9 packages can be updated.
+0 updates are security updates.
    ```
 
    #### Setup your blockchain environment
@@ -93,15 +99,20 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
 
   ![Verify the environment pre-requisites are installed.](images/verifyPreReqs.png)
 
-5. To be ready to build your first blockchain application, you'll need to get everything running. This has been scripted for you. In your terminal, enter `ls` to see what is in your home directory. You should find a script called *SHARESacramentoBlockchainScript.sh*.
+5. To be ready to build your first blockchain application, you'll need to get everything running. This has been scripted for you. Copy the script to your guest using the following command.
 
-   ![View setup script.](images/setupScript.png)
+   ```
+   wget https://raw.githubusercontent.com/IBM/HyperledgerFabric-on-LinuxOne/master/Linux1BlockchainScript.sh
+   ```
 
-6. Take a look at the script to see the commands that will be run to start up your blockchain environment by issuing `cat SHARESacramentoBlockchainScript.sh`.
+6. Make the script executable. Check to make sure the script is there and excutable.
 
-   ![View setup script.](images/viewScript.png)
+   ```
+   chmod u+x ComposerLabSetup.sh
+   ls
+   ```
 
-7. Enter `./SHARESacramentoBlockchainScript.sh` to run the script.
+7. Enter `./ComposerLabSetup.sh` to run the script.
 
    ![Results of successful completion of setup script.](images/finishedSetupScript.png)
 
