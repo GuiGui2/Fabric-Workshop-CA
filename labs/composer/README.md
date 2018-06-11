@@ -89,6 +89,10 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
 
 4. To save time in this lab, the pre-requisites for this lab are already installed. Use the following commands to verify installation.
 
+   * Node: `node -v`
+   
+   * NPM: `npm -v`
+   
    * Docker: `docker -v`
 
    * Docker Compose: `docker-compose -v`
@@ -102,7 +106,7 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
 5. To be ready to build your first blockchain application, you'll need to get everything running. This has been scripted for you. Copy the script to your guest using the following command.
 
    ```
-   wget https://raw.githubusercontent.com/IBM/HyperledgerFabric-on-LinuxOne/master/Linux1BlockchainScript.sh
+   wget https://raw.githubusercontent.com/GuiGui2/Fabric-Workshop-CA/master/labs/composer/ComposerLabSetup.sh
    ```
 
 6. Make the script executable. Check to make sure the script is there and excutable.
