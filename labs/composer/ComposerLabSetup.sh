@@ -21,10 +21,6 @@ if [[ "$relog" = true ]]; then
   exit 1
 fi
 # Ensure /data exists
-if [[ ! -d "/data" ]]; then
-  echo "/data disk is missing. It could take up to 10 minutes to format and mount the /data disk. Issue 'df -h' to verify the /data disk is available before running this script again. When /data is available, please run this script again."
-  exit 2
-fi
 # END Sanity checks
 
 printf "
@@ -55,44 +51,13 @@ IBM Master the Mainframe
 
 "
 
-
-#Install NodeJS
-echo -e “*** install_nodejs ***”
-cd /tmp
-wget -q https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-s390x.tar.gz
-cd /usr/local && sudo tar --strip-components=1 -xzf /tmp/node-v8.9.4-linux-s390x.tar.gz
-echo -e “*** Done withe NodeJS ***\n”
-
-
-#Setup and install docker-compose
-echo -e “*** Installing docker-compose. ***\n”
-sudo zypper install -y python-pyOpenSSL python-setuptools
-sudo easy_install pip
-sudo pip install docker-compose==1.13.0
-echo -e “*** Done with docker-compose. ***\n”
-
-#Install Hyperledger Composer Components
-echo -e “*** Installing Hyperledger Composer command line tools. ***\n”
-mkdir /data/linux1/ 
-npm config set prefix '/data/npm'
-npm config set cache /data/linux1/.npm
-export PATH=/data/npm/bin:$PATH
-cd /data/linux1/
-npm install -g composer-cli@0.17.4
-
-echo -e “*** Installing Hyperledger Composer rest server. ***\n”
-npm install -g composer-rest-server@0.17.4
-
-echo -e “*** Installing Hyperledger Composer playground. ***\n”
-npm install -g composer-playground@0.17.4
-
 echo -e "*** Clone and install the Coposer Tools repository.***\n"
 mkdir ~/fabric-tools && cd ~/fabric-tools
 curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
 tar -xvf fabric-dev-servers.tar.gz
 export FABRIC_VERSION=hlfv11
 echo "export FABRIC_VERSION=hlfv11" >> $HOME/.profile
-./downloadFabric.sh
+#./downloadFabric.sh
 ./startFabric.sh
 ./createPeerAdminCard.sh
 mkdir /data/playground/
