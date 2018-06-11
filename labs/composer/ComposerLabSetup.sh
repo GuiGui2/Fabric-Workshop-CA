@@ -11,7 +11,6 @@ fi
 # Update PATH for /usr/local/bin
   echo "export PATH=/usr/local/bin:$PATH" >> $HOME/.profile
   echo "Updated PATH."
-  relog=true
 # Relog needed?
 if [[ "$relog" = true ]]; then
   echo "Some changes have been made that require you to log out and log back in."
