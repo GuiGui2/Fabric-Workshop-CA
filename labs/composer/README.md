@@ -68,7 +68,7 @@ In this section of the lab, you will use PuTTy to connect to your LinuxONE guest
 
 2. This lab document assumes your lab instructors have already started your VPN for you. If you cannot get the next step to work, please ask a lab instructor for assistance.
 
-3. **Open** PuTTy and **select** the preconfigured session showing the IP address of your guest to connect to your LinuxONE guest. Once you're connected you should see something like the image below.
+3. **Open** your terminal and use ssh or PuTTy to connect to your guest.. Once you're connected you should see something like the image below.
 
    ```
    Welcome to Ubuntu 17.10 (GNU/Linux 4.13.0-43-generic s390x)
