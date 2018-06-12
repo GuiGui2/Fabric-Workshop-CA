@@ -275,7 +275,7 @@ The next step is to instantiate it in the Fabric. In order to do that, we'll use
 
 **Step 5:** Now is time to install the chaincode onto the peer.
 
-    root@2b839fc94578:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode install -n step1 -v1.0 -p chaincode/step1
+    root@2b839fc94578:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode install -n step1 -v1.0 -p chaincode/go/step1
     2017-10-23 08:49:58.634 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
     2017-10-23 08:49:58.634 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
     2017-10-23 08:49:58.635 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 003 Using default escc
