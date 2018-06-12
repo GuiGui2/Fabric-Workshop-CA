@@ -95,63 +95,75 @@ Section 2: Getting the environment ready
 
     blockchain@blkchn30:~/labconfig$ docker ps
     CONTAINER ID        IMAGE                        COMMAND                  CREATED              STATUS              PORTS                                             NAMES
-    2a4e82bd679e        hyperledger/fabric-tools     "/bin/bash -c 'sle..."   About a minute ago   Up About a minute   0.0.0.0:32771->9092/tcp                           cli
-    ae3a77871a6f        hyperledger/fabric-peer      "peer node start"        About a minute ago   Up About a minute   7050/tcp, 7052-7059/tcp, 0.0.0.0:8051->7051/tcp   peer1
-    f39027a7dcc9        hyperledger/fabric-peer      "peer node start"        About a minute ago   Up About a minute   7050/tcp, 7052-7059/tcp, 0.0.0.0:7051->7051/tcp   peer0
-    c1560e815965        hyperledger/fabric-orderer   "orderer"                About a minute ago   Up About a minute   0.0.0.0:7050->7050/tcp                            orderer0
-    a8c21e24d142        hyperledger/fabric-couchdb   "tini -- /docker-e..."   About a minute ago   Up About a minute   4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp        couchdb0
-    85f226d3050d        hyperledger/fabric-couchdb   "tini -- /docker-e..."   About a minute ago   Up About a minute   4369/tcp, 9100/tcp, 0.0.0.0:6984->5984/tcp        couchdb1
+    3ac1d66fc0b2        hyperledger/fabric-tools       "/bin/bash -c 'sleep…"   About a minute ago   Up About a minute   0.0.0.0:32835->9092/tcp                                                     cli
+    a610741649a3        hyperledger/fabric-peer        "peer node start"        About a minute ago   Up About a minute   7050/tcp, 7052-7059/tcp, 0.0.0.0:10051->7051/tcp                            peer2.2
+    4de94667c64e        hyperledger/fabric-peer        "peer node start"        About a minute ago   Up About a minute   7050/tcp, 7052-7059/tcp, 0.0.0.0:9051->7051/tcp                             peer2.1
+    d53d69ed7eec        hyperledger/fabric-peer        "peer node start"        About a minute ago   Up About a minute   7050/tcp, 7052-7059/tcp, 0.0.0.0:8051->7051/tcp                             peer1.2
+    bc5355c1e456        hyperledger/fabric-peer        "peer node start"        About a minute ago   Up About a minute   7050/tcp, 7052-7059/tcp, 0.0.0.0:7051->7051/tcp                             peer1.1
+    e4a3b3cc3824        hyperledger/fabric-orderer     "orderer"                About a minute ago   Up About a minute   0.0.0.0:32834->7050/tcp                                                     orderer3
+    b9ea898af902        hyperledger/fabric-orderer     "orderer"                About a minute ago   Up About a minute   0.0.0.0:32833->7050/tcp                                                     orderer2
+    726ae9dffa64        hyperledger/fabric-orderer     "orderer"                About a minute ago   Up About a minute   0.0.0.0:32832->7050/tcp                                                     orderer1
+    fe6ae2e94f07        hyperledger/fabric-orderer     "orderer"                About a minute ago   Up About a minute   0.0.0.0:32831->7050/tcp                                                     orderer0
+    33b5f50ee296        hyperledger/fabric-kafka       "/docker-entrypoint.…"   2 minutes ago        Up About a minute   9093/tcp, 0.0.0.0:32830->9092/tcp                                           kafka2
+    4b9b79517f69        hyperledger/fabric-kafka       "/docker-entrypoint.…"   2 minutes ago        Up About a minute   9093/tcp, 0.0.0.0:32829->9092/tcp                                           kafka1
+    5707e647d5c3        hyperledger/fabric-kafka       "/docker-entrypoint.…"   2 minutes ago        Up About a minute   9093/tcp, 0.0.0.0:32828->9092/tcp                                           kafka3
+    805ec2c3ca14        hyperledger/fabric-kafka       "/docker-entrypoint.…"   2 minutes ago        Up About a minute   9093/tcp, 0.0.0.0:32827->9092/tcp                                           kafka0
+    33b99a94f85f        hyperledger/fabric-couchdb     "tini -- /docker-ent…"   2 minutes ago        Up 2 minutes        4369/tcp, 9100/tcp, 0.0.0.0:7984->5984/tcp                                  couchdb2.1
+    de7a0b8e54dc        hyperledger/fabric-zookeeper   "/docker-entrypoint.…"   2 minutes ago        Up About a minute   0.0.0.0:32826->2181/tcp, 0.0.0.0:32825->2888/tcp, 0.0.0.0:32823->3888/tcp   zookeeper0
+    775e167a2121        hyperledger/fabric-zookeeper   "/docker-entrypoint.…"   2 minutes ago        Up 2 minutes        0.0.0.0:32824->2181/tcp, 0.0.0.0:32822->2888/tcp, 0.0.0.0:32821->3888/tcp   zookeeper2
+    08953f96d0ab        hyperledger/fabric-couchdb     "tini -- /docker-ent…"   2 minutes ago        Up 2 minutes        4369/tcp, 9100/tcp, 0.0.0.0:8984->5984/tcp                                  couchdb2.2
+    53c54e0021b0        hyperledger/fabric-ca          "sh -c 'fabric-ca-se…"   2 minutes ago        Up About a minute   0.0.0.0:32820->7054/tcp                                                     OrdererOrgCA
+    ca470393b666        hyperledger/fabric-couchdb     "tini -- /docker-ent…"   2 minutes ago        Up 2 minutes        4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp                                  couchdb1.1
+    e4b6506bfb8d        hyperledger/fabric-ca          "/bin/sh -c 'fabric-…"   2 minutes ago        Up 2 minutes        0.0.0.0:32816->7054/tcp                                                     Org2CA
+    a383aeb33f46        hyperledger/fabric-couchdb     "tini -- /docker-ent…"   2 minutes ago        Up About a minute   4369/tcp, 9100/tcp, 0.0.0.0:6984->5984/tcp                                  couchdb1.2
+    beb7adf119b1        hyperledger/fabric-zookeeper   "/docker-entrypoint.…"   2 minutes ago        Up About a minute   0.0.0.0:32819->2181/tcp, 0.0.0.0:32818->2888/tcp, 0.0.0.0:32817->3888/tcp   zookeeper1
+    7e582ee71b7c        hyperledger/fabric-ca          "sh -c 'fabric-ca-se…"   2 minutes ago        Up 2 minutes        0.0.0.0:32815->7054/tcp                                                     Org1CA
 
-The Fabric is composed of one orderer, 2 peers using CouchDB as their World State and a CLI we'll use in the next section to test our Smart Contract.
 
-**Step 5:** For the Fabric to be usable, we need to create a channel, and add the two peers to this channel. We have provided 2 scripts to do that quickly.
-First, we create a channel called labchannel, using the script called createLabChannel.sh.
+The Fabric is composed of 4 orderers, 2 peers using CouchDB as their World State per organization and a CLI we'll use in the next section to test our Smart Contract.
 
-    blockchain@blkchn30:~$ createLabChannel.sh 
-    2017-10-23 08:06:18.640 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
-    2017-10-23 08:06:18.640 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
-    2017-10-23 08:06:18.661 UTC [channelCmd] InitCmdFactory -> INFO 003 Endorser and orderer connections initialized
-    2017-10-23 08:06:18.661 UTC [msp] GetLocalMSP -> DEBU 004 Returning existing local MSP
-    2017-10-23 08:06:18.661 UTC [msp] GetDefaultSigningIdentity -> DEBU 005 Obtaining default signing identity
-    2017-10-23 08:06:18.661 UTC [msp] GetLocalMSP -> DEBU 006 Returning existing local MSP
-    2017-10-23 08:06:18.661 UTC [msp] GetDefaultSigningIdentity -> DEBU 007 Obtaining default signing identity
-    2017-10-23 08:06:18.661 UTC [msp/identity] Sign -> DEBU 008 Sign: plaintext: 0AE6060A10426C6F636B436861696E43...53616D706C65436F6E736F727469756D 
-    2017-10-23 08:06:18.661 UTC [msp/identity] Sign -> DEBU 009 Sign: digest: 25A066C5B5B2309A805DB7E2D98826D277ED7C8D47D5C3938E6AB417BCACF635 
-    2017-10-23 08:06:18.662 UTC [msp] GetLocalMSP -> DEBU 00a Returning existing local MSP
-    2017-10-23 08:06:18.662 UTC [msp] GetDefaultSigningIdentity -> DEBU 00b Obtaining default signing identity
-    2017-10-23 08:06:18.662 UTC [msp] GetLocalMSP -> DEBU 00c Returning existing local MSP
-    2017-10-23 08:06:18.662 UTC [msp] GetDefaultSigningIdentity -> DEBU 00d Obtaining default signing identity
-    2017-10-23 08:06:18.662 UTC [msp/identity] Sign -> DEBU 00e Sign: plaintext: 0A9E070A1608021A0608FAC5B6CF0522...0FC8970F145F512150D5A1BCA86CA755 
-    2017-10-23 08:06:18.662 UTC [msp/identity] Sign -> DEBU 00f Sign: digest: F9F063E29589B5DA8A5C60CD27E6EC52B61E9C1B8F807AC3C2B61B183A70B752 
-    2017-10-23 08:06:18.714 UTC [msp] GetLocalMSP -> DEBU 010 Returning existing local MSP
-    2017-10-23 08:06:18.715 UTC [msp] GetDefaultSigningIdentity -> DEBU 011 Obtaining default signing identity
-    2017-10-23 08:06:18.715 UTC [msp] GetLocalMSP -> DEBU 012 Returning existing local MSP
-    2017-10-23 08:06:18.715 UTC [msp] GetDefaultSigningIdentity -> DEBU 013 Obtaining default signing identity
-    2017-10-23 08:06:18.715 UTC [msp/identity] Sign -> DEBU 014 Sign: plaintext: 0A9E070A1608021A0608FAC5B6CF0522...437CFD1B8D3112080A021A0012021A00 
-    2017-10-23 08:06:18.715 UTC [msp/identity] Sign -> DEBU 015 Sign: digest: 97C003C138B07438ADE7F6F1ADA2250B638F4E3595541F29C659880381448AEB 
-    2017-10-23 08:06:18.716 UTC [channelCmd] readBlock -> DEBU 016 Got status: &{NOT_FOUND}
-    2017-10-23 08:06:18.716 UTC [msp] GetLocalMSP -> DEBU 017 Returning existing local MSP
-    2017-10-23 08:06:18.716 UTC [msp] GetDefaultSigningIdentity -> DEBU 018 Obtaining default signing identity
-    2017-10-23 08:06:18.740 UTC [channelCmd] InitCmdFactory -> INFO 019 Endorser and orderer connections initialized
-    2017-10-23 08:06:18.940 UTC [msp] GetLocalMSP -> DEBU 01a Returning existing local MSP
-    2017-10-23 08:06:18.941 UTC [msp] GetDefaultSigningIdentity -> DEBU 01b Obtaining default signing identity
-    2017-10-23 08:06:18.941 UTC [msp] GetLocalMSP -> DEBU 01c Returning existing local MSP
-    2017-10-23 08:06:18.941 UTC [msp] GetDefaultSigningIdentity -> DEBU 01d Obtaining default signing identity
-    2017-10-23 08:06:18.941 UTC [msp/identity] Sign -> DEBU 01e Sign: plaintext: 0A9E070A1608021A0608FAC5B6CF0522...B49EE5D6EC1F12080A021A0012021A00 
-    2017-10-23 08:06:18.941 UTC [msp/identity] Sign -> DEBU 01f Sign: digest: 43CDB9A7B68A8073F03D4C1ADADDD829EA0B40C07D03258A19D5D19CA076C8C5 
-    2017-10-23 08:06:18.944 UTC [channelCmd] readBlock -> DEBU 020 Received block: 0
-    2017-10-23 08:06:18.945 UTC [main] main -> INFO 021 Exiting.....
+**Step 5:** For the Fabric to be usable, we need to create a channel, and add peers to this channel. 
 
-Then we add our peer to the channel, using the provided script joinLabChannel.sh:
+    blockchain@blkchn30:~$ docker exec -it bash cli
+    root@3ac1d66fc0b2:/opt/gopath/src/github.com/hyperledger/fabric/config# peer channel create -o orderer0:7050 -c mpl -f mpl.tx 
+    2018-06-12 15:00:20.266 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
+    2018-06-12 15:00:20.268 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
+    2018-06-12 15:00:20.289 UTC [channelCmd] InitCmdFactory -> INFO 003 Endorser and orderer connections initialized
+    2018-06-12 15:00:20.289 UTC [msp] GetLocalMSP -> DEBU 004 Returning existing local MSP
+    2018-06-12 15:00:20.313 UTC [msp] GetDefaultSigningIdentity -> DEBU 005 Obtaining default signing identity
+    2018-06-12 15:00:20.314 UTC [msp] GetLocalMSP -> DEBU 006 Returning existing local MSP
+    2018-06-12 15:00:20.314 UTC [msp] GetDefaultSigningIdentity -> DEBU 007 Obtaining default signing identity
+    2018-06-12 15:00:20.314 UTC [msp/identity] Sign -> DEBU 008 Sign: plaintext: 0AE7060A074F7267314D535012DB062D...53616D706C65436F6E736F727469756D 
+    2018-06-12 15:00:20.314 UTC [msp/identity] Sign -> DEBU 009 Sign: digest: 28C4E02902BA7B0C3789F47CD21E9023B6E030E8B2B673D6A66074A7B6B77FE5 
+    2018-06-12 15:00:20.315 UTC [msp] GetLocalMSP -> DEBU 00a Returning existing local MSP
+    2018-06-12 15:00:20.315 UTC [msp] GetDefaultSigningIdentity -> DEBU 00b Obtaining default signing identity
+    2018-06-12 15:00:20.315 UTC [msp] GetLocalMSP -> DEBU 00c Returning existing local MSP
+    2018-06-12 15:00:20.315 UTC [msp] GetDefaultSigningIdentity -> DEBU 00d Obtaining default signing identity
+    2018-06-12 15:00:20.315 UTC [msp/identity] Sign -> DEBU 00e Sign: plaintext: 0A98070A0F08021A060884C0FFD80522...58D1184E57DBD56A592755FD5261C391 
+    2018-06-12 15:00:20.315 UTC [msp/identity] Sign -> DEBU 00f Sign: digest: 74C8863088CCBB9AEC24155BC9B739DE2C5C9A1711838F623E4CCE65459D0B3B 
+    2018-06-12 15:00:20.377 UTC [msp] GetLocalMSP -> DEBU 010 Returning existing local MSP
+    [...]
+    2018-06-12 15:00:22.023 UTC [msp/identity] Sign -> DEBU 065 Sign: digest: 04631E571657A8756876653F2CC4927A24D5243EF640D69F6AFAA591CB209B00 
+    2018-06-12 15:00:22.026 UTC [channelCmd] readBlock -> DEBU 066 Received block: 0
+    2018-06-12 15:00:22.027 UTC [main] main -> INFO 067 Exiting.....
+    root@3ac1d66fc0b2:/opt/gopath/src/github.com/hyperledger/fabric/config# peer channel join -b mpl.block 
+    2018-06-12 15:00:32.150 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
+    2018-06-12 15:00:32.150 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
+    2018-06-12 15:00:32.152 UTC [channelCmd] InitCmdFactory -> INFO 003 Endorser and orderer connections initialized
+    2018-06-12 15:00:32.153 UTC [msp/identity] Sign -> DEBU 004 Sign: plaintext: 0AE4070A5B08011A0B0890C0FFD80510...6FD49B99E97E1A080A000A000A000A00 
+    2018-06-12 15:00:32.153 UTC [msp/identity] Sign -> DEBU 005 Sign: digest: E138858AAE9CC1273A393165851FA7B962F97167D524A199EDEB395CA8ED6E56 
+    2018-06-12 15:00:32.554 UTC [channelCmd] executeJoin -> INFO 006 Successfully submitted proposal to join channel
+    2018-06-12 15:00:32.554 UTC [main] main -> INFO 007 Exiting.....
 
-    blockchain@blkchn30:~$ joinLabChannel.sh 
-    2017-10-23 08:07:23.199 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
-    2017-10-23 08:07:23.199 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
-    2017-10-23 08:07:23.240 UTC [channelCmd] InitCmdFactory -> INFO 003 Endorser and orderer connections initialized
-    2017-10-23 08:07:23.241 UTC [msp/identity] Sign -> DEBU 004 Sign: plaintext: 0AE3070A5B08011A0B08BBC6B6CF0510...53F0CBFB06201A080A000A000A000A00 
-    2017-10-23 08:07:23.241 UTC [msp/identity] Sign -> DEBU 005 Sign: digest: 0B05E99156F416AD97D82EE5A797D4A2981D59E9BED57DA026D40A3CD1EF2871 
-    2017-10-23 08:07:23.356 UTC [channelCmd] executeJoin -> INFO 006 Peer joined the channel!
-    2017-10-23 08:07:23.356 UTC [main] main -> INFO 007 Exiting.....
+    root@3ac1d66fc0b2:/opt/gopath/src/github.com/hyperledger/fabric/config# CORE_PEER_ADDRESS=peer1.2:7051 peer channel join -b mpl.block 
+    2018-06-12 15:01:07.394 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
+    2018-06-12 15:01:07.394 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
+    2018-06-12 15:01:07.397 UTC [channelCmd] InitCmdFactory -> INFO 003 Endorser and orderer connections initialized
+    2018-06-12 15:01:07.397 UTC [msp/identity] Sign -> DEBU 004 Sign: plaintext: 0AE5070A5C08011A0C08B3C0FFD80510...6FD49B99E97E1A080A000A000A000A00 
+    2018-06-12 15:01:07.398 UTC [msp/identity] Sign -> DEBU 005 Sign: digest: C6571D0AA04D42B57DB4E5022791F0CE00E729918A5ADA8BDDB4A270DE4AAF7B 
+    2018-06-12 15:01:07.580 UTC [channelCmd] executeJoin -> INFO 006 Successfully submitted proposal to join channel
+    2018-06-12 15:01:07.580 UTC [main] main -> INFO 007 Exiting.....
+    root@3ac1d66fc0b2:/opt/gopath/src/github.com/hyperledger/fabric/config# 
 
 The fabric is now up, running and configured.
 
@@ -287,7 +299,7 @@ The **peer chaincode install** command requires the following arguments:
 
 **Step 6:** Final part of the deployment is to instantiate the chaincode. This will build a specific container, bound to a specific peer, that will execute the chaincode.
 
-    root@2b839fc94578:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode instantiate -o orderer0:7050 -n step1 -v1.0 -C labchannel -c '{"Args":["Init"]}' -P "OR('BlockChainCoCMSP.member')"
+    root@2b839fc94578:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode instantiate -o orderer0:7050 -n step1 -v1.0 -C mpl -c '{"Args":["Init"]}' -P "OR('Org1MSP.member')"
     2017-10-23 08:56:41.586 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
     2017-10-23 08:56:41.586 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
     2017-10-23 08:56:41.590 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 003 Using default escc
@@ -312,7 +324,7 @@ The **peer chaincode instantiate** command takes the following arguments:
 
     blockchain@blkchn30:~$ docker ps |grep step1
     CONTAINER ID        IMAGE                                                                                  COMMAND                  CREATED             STATUS              PORTS                                             NAMES
-    b2b07b68df48        dev-peer0-step1-1.0-71189b25530a3dd0519aafc23b0dba073e3d567416c7dad58745b40ffbc13ce6   "chaincode -peer.a..."   7 minutes ago       Up 7 minutes                                                          dev-peer0-step1-1.0
+    b2b07b68df48        dev-peer1.1-step1-1.0-71189b25530a3dd0519aafc23b0dba073e3d567416c7dad58745b40ffbc13ce6   "chaincode -peer.a..."   7 minutes ago       Up 7 minutes                                                          dev-peer0-step1-1.0
 
 Section 4: Chaincode development - step 2
 =========================================
@@ -343,7 +355,7 @@ Suggested if to use the PutState method to store a key of your choice, together 
     2017-10-23 11:32:12.286 UTC [chaincodeCmd] install -> DEBU 00c Installed remotely response:<status:200 payload:"OK" > 
     2017-10-23 11:32:12.286 UTC [main] main -> INFO 00d Exiting.....
 
-    root@2b839fc94578:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode instantiate -o orderer0:7050 -n step2 -v1.0 -C labchannel -c '{"Args":["Init"]}' -P "OR('BlockChainCoCMSP.member')"
+    root@2b839fc94578:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode instantiate -o orderer0:7050 -n step2 -v1.0 -C mpl -c '{"Args":["Init"]}' -P "OR('Org1MSP.member')"
     2017-10-23 11:32:35.441 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
     2017-10-23 11:32:35.441 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
     2017-10-23 11:32:35.444 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 003 Using default escc
