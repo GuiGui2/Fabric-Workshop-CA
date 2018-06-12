@@ -124,7 +124,7 @@ The Fabric is composed of 4 orderers, 2 peers using CouchDB as their World State
 
 **Step 5:** For the Fabric to be usable, we need to create a channel, and add peers to this channel. 
 
-    blockchain@blkchn30:~$ docker exec -it bash cli
+    blockchain@blkchn30:~$ docker exec -it cli bash
     root@3ac1d66fc0b2:/opt/gopath/src/github.com/hyperledger/fabric/config# peer channel create -o orderer0:7050 -c mpl -f mpl.tx 
     2018-06-12 15:00:20.266 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
     2018-06-12 15:00:20.268 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
