@@ -12,37 +12,37 @@ Section 2: Getting started
 **Step 1:** Log in to your assigned Ubuntu 17.04 Linux on IBM Z instance using PuTTY, the OS X terminal, or the Linux terminal of your choice.
 You will be greated with a message similar to this one::
 
-    [guigui@t460 ~]$ ssh blockchain@10.3.4.189
-    blockchain@10.3.4.189's password: 
-    Welcome to Ubuntu 17.04 (GNU/Linux 4.10.0-37-generic s390x)
+    [guigui@t460 ~]$ ssh blockchain@10.3.4.177
+    blockchain@10.3.4.177's password: 
+    Welcome to Ubuntu 17.10 (GNU/Linux 4.13.0-43-generic s390x)
 
-     * Documentation:  https://help.ubuntu.com
-     * Management:     https://landscape.canonical.com
-     * Support:        https://ubuntu.com/advantage
+    * Documentation:  https://help.ubuntu.com
+    * Management:     https://landscape.canonical.com
+    * Support:        https://ubuntu.com/advantage
 
-     * CVE-2017-14106 (divide-by-zero vulnerability in the Linux TCP stack) is
-       now fixed in Ubuntu.  Livepatch now, reboot later.
-       - https://ubu.one/CVE-2017-14106
-       - https://ubu.one/rebootLater
+    * Meltdown, Spectre and Ubuntu: What are the attack vectors,
+      how the fixes work, and everything else you need to know
+      - https://ubu.one/u2Know
 
-    1 package can be updated.
-    0 updates are security updates.
+    13 packages can be updated.
+    13 updates are security updates.
 
 
+Last login: Tue Jun 12 15:56:39 2018 from 10.32.44.68
     Last login: Tue Oct 17 15:56:34 2017 from 10.32.16.190
     blockchain@blkchn32:~$ 
 
 **Step 2:** Explore the environment to find out where the go binaries are installed::
 
     blockchain@blkchn32:~$ which go 
-    /usr/lib/go-1.8/bin/go
+    /usr/lib/go-1.9/bin/go
 
 **Step 3:** Confirm what the exact version of the Go language installed on the machine::
 
     blockchain@blkchn32:~$ go version
-    go version go1.8.1 linux/s390x
+    go version go1.9.1 linux/s390x
 
-We have a Go version 1.8.1 version available for the s390x platform.
+We have a Go version 1.9.1 version available for the s390x platform.
 
 **Step4:** Chaincodes need to be installed in a subdirectory of the ${GOPATH}/src directory.
 Using go env command, let's figure out what the value of this variable in order to identify where we need to locate our chaincode::
@@ -55,22 +55,41 @@ Our chaincode will have to go in a subdirectory of */home/blockchain/gopath/src*
 Section 2: Getting the environment ready
 ========================================
 
-**Step 1:** Move to the labconfig directory in your home folder. This directory contains all needed configuration files to start a Fabric.
+**Step 1:** Move to the fabric-configs/v1.1.x/ directory in your home folder. This directory contains all needed configuration files to start a Fabric.
 
-    blockchain@blkchn32:~$ cd labconfig
-    blockchain@blkchn30:~/labconfig$ ls
-    api-node-js  configtx.yaml  cryptography  docker-compose-couchdb-lab.yaml  docker-compose-lab.yaml  labchannel.block  labchannel.tx  orderer.block
+    blockchain@blkchn32:~$ cd fabric-configs/v1.1.x
+    blockchain@blkchn30:~/fabric-configs/v1.1.x$ ls
+    README.md  ca.yml  cas  channel-artifacts  docker-compose-kafka-couch.yml  docker-compose-kafka.yml  docker-compose-solo-couch.yml  docker-compose-solo.yml
+
 
 **Step 2:** Start the Fabric using the provided docker-compose file:
 
-    blockchain@blkchn30:~/labconfig$ docker-compose -f docker-compose-couchdb-lab.yaml up -d
-    Creating network "marbles_default" with the default driver
-    Creating couchdb1
-    Creating couchdb0
-    Creating orderer0
-    Creating peer0
-    Creating peer1
-    Creating cli
+    blockchain@blkchn30:~/fabric-configs/v1.1.x$ docker-compose -f docker-compose-kafka-couch.yml up -d
+    Creating network "zmarbles_default" with the default driver
+    Creating Org1CA       ... done
+    Creating zookeeper1   ... done
+    Creating couchdb1.2   ... done
+    Creating couchdb1.1   ... done
+    Creating OrdererOrgCA ... done
+    Creating zookeeper2   ... done
+    Creating couchdb2.2   ... done
+    Creating Org2CA       ... done
+    Creating zookeeper0   ... done
+    Creating couchdb2.1   ... done
+    Creating kafka3       ... done
+    Creating kafka0       ... done
+    Creating kafka2       ... done
+    Creating kafka1       ... done
+    Creating orderer0     ... done
+    Creating orderer1     ... done
+    Creating orderer2     ... done
+    Creating orderer3     ... done
+    Creating peer1.1      ... done
+    Creating peer1.2      ... done
+    Creating peer2.1      ... done
+    Creating peer2.2      ... done
+    Creating cli          ... done
+
 
 **Step 4:** Ensure the containers have been started as expected using the docker ps command:
 
